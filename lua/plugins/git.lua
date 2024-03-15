@@ -12,7 +12,7 @@ return {
 			neogit.setup({})
 
 			local mapper = vim.keymap
-			mapper.set("n", "<C-g>", "<cmd>Neogit<CR>")
+			mapper.set("n", "<C-g>", "<cmd>Neogit kind=floating<CR>")
 		end,
 	},
 }
