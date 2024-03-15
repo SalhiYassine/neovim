@@ -44,11 +44,6 @@ mapper.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Show diagnost
 mapper.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 mapper.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
-vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
-
 mapper.set("n", "<C-b>", "<cmd>Ex<CR>")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
