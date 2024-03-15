@@ -43,10 +43,12 @@ mapper.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnosti
 mapper.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 mapper.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 mapper.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-mapper.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-mapper.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-mapper.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-mapper.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+
 mapper.set("n", "<C-b>", "<cmd>Ex<CR>")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
