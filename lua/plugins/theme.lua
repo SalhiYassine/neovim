@@ -1,10 +1,12 @@
 return {
 	{
-		"folke/tokyonight.nvim",
+		"ellisonleao/gruvbox.nvim",
 		priority = 1000,
-		init = function()
-			vim.cmd.colorscheme("tokyonight-night")
-			vim.cmd.hi("Comment gui=none")
+		config = function()
+			local theme = require("gruvbox")
+			theme.setup({})
+			vim.o.background = "dark" -- or "light"
+			vim.cmd([[colorscheme gruvbox]])
 		end,
 	},
 }
