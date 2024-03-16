@@ -9,7 +9,11 @@ return {
 		config = function()
 			local neogit = require("neogit")
 
-			neogit.setup({})
+			neogit.setup({
+				integrations = {
+					diffview = true,
+				},
+			})
 
 			local mapper = vim.keymap
 			mapper.set("n", "<C-g>", "<cmd>Neogit<CR>")
