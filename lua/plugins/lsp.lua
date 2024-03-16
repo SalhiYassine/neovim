@@ -48,6 +48,8 @@ return {
 			local servers = {
 				gopls = {},
 				pyright = {},
+				jsonls = {},
+				html = {},
 				tsserver = {},
 				lua_ls = {
 					settings = {
@@ -63,6 +65,9 @@ return {
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua",
+				"tsserver",
+				"gopls",
+				"jsonls",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 			require("mason-lspconfig").setup({
