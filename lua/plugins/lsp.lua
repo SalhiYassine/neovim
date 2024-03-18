@@ -15,6 +15,12 @@ return {
 					local map = function(keys, func, desc)
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
+
+					local mapInsert = function(keys, func, desc)
+						vim.keymap.set("i", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+					end
+
+					mapInsert("<C-space>", vim.lsp.buf.completion({}), "Complete")
 					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 					map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
