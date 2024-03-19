@@ -7,6 +7,15 @@ return {
 				dependencies = { "nvim-lua/plenary.nvim" },
 			},
 		},
+		opts = {
+			extensions = {
+				undo = {
+					use_delta = true,
+					diff_context_lines = vim.o.scrolloff,
+					saved_only = false,
+				},
+			},
+		},
 		keys = {
 			{
 				"<leader>u",
@@ -15,7 +24,6 @@ return {
 			},
 		},
 		config = function(_, opts)
-			require("telescope").setup(opts)
 			require("telescope").load_extension("undo")
 		end,
 	},
