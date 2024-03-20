@@ -51,6 +51,12 @@ mapper.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window"
 mapper.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 mapper.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+mapper.set("n", "L", "$", { desc = "Move to the end of the line" })
+mapper.set("n", "H", "^", { desc = "Move to the start of the line" })
+
+mapper.set("v", "J", ":m '>+1<CR>gv-gv", { desc = "Move selected lines down" })
+mapper.set("v", "K", ":m '<-2<CR>gv-gv", { desc = "Move selected lines up" })
+
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
