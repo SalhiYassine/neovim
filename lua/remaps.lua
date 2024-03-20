@@ -44,7 +44,7 @@ mapper.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Show diagnost
 mapper.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 mapper.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
-mapper.set("n", "<C-b>", "<cmd>Ex<CR>")
+mapper.set("n", "<C-b>", "<cmd>e<CR>")
 
 mapper.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 mapper.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
@@ -52,7 +52,10 @@ mapper.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window"
 mapper.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 mapper.set("n", "L", "$", { desc = "Move to the end of the line" })
+mapper.set("v", "L", "$", { desc = "Move to the end of the line" })
+
 mapper.set("n", "H", "^", { desc = "Move to the start of the line" })
+mapper.set("v", "H", "^", { desc = "Move to the start of the line" })
 
 mapper.set("v", "J", ":m '>+1<CR>gv-gv", { desc = "Move selected lines down" })
 mapper.set("v", "K", ":m '<-2<CR>gv-gv", { desc = "Move selected lines up" })
