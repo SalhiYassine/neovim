@@ -22,6 +22,11 @@ return {
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			luasnip.config.setup({})
+
+			cmp.config.formatting = {
+				format = require("tailwindcss-colorizer-cmp").formatter,
+			}
+
 			cmp.setup({
 				snippet = {
 					expand = function(args)
@@ -53,6 +58,13 @@ return {
 					{ name = "path" },
 				},
 			})
+		end,
+	},
+	{
+		"roobert/tailwindcss-colorizer-cmp.nvim",
+		dependencies = { "hrsh7th/nvim-cmp" },
+		config = function()
+			require("tailwindcss-colorizer-cmp").setup({})
 		end,
 	},
 	{

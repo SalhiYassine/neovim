@@ -60,14 +60,21 @@ mapper.set("v", "H", "^", { desc = "Move to the start of the line" })
 mapper.set("v", "J", ":m '>+1<CR>gv-gv", { desc = "Move selected lines down" })
 mapper.set("v", "K", ":m '<-2<CR>gv-gv", { desc = "Move selected lines up" })
 
-mapper.set("n", "<C-w>", "<cmd>:q<CR>", { desc = "Close buffer" })
-mapper.set("v", "<C-w>", "<cmd>:q<CR>", { desc = "Close buffer" })
-mapper.set("i", "<C-w>", "<cmd>:q<CR>", { desc = "Close buffer" })
-mapper.set("t", "<C-w>", "<cmd>:q<CR>", { desc = "Close buffer" })
--- i want it to kill the process in the terminal
--- then close the terminal
--- then close the buffer
-mapper.set("t", "<C-w>", "<C-\\><C-n>:q<CR>", { desc = "Close terminal" })
+mapper.set("i", "jk", "<Esc>", {})
+mapper.set("i", "jj", "<Esc>", {})
+mapper.set("i", "kj", "<Esc>", {})
+
+local keymap = function(key, action, opts)
+	vim.api.nvim_set_keymap("n", key, action, opts)
+	vim.api.nvim_set_keymap("v", key, action, opts)
+	vim.api.nvim_set_keymap("i", key, action, opts)
+end
+
+local opts = { noremap = true, silent = true }
+keymap("<Up>", "<Nop>", opts)
+keymap("<Down>", "<Nop>", opts)
+keymap("<Left>", "<Nop>", opts)
+keymap("<Right>", "<Nop>", opts)
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",

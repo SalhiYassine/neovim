@@ -1,5 +1,11 @@
 return {
 	{
+		"folke/lsp-colors.nvim",
+		config = function()
+			require("lsp-colors").setup()
+		end,
+	},
+	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
@@ -21,13 +27,6 @@ return {
 					end
 
 					mapV("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-
-					vim.keymap.set(
-						"i",
-						"<C-Space>",
-						vim.lsp.buf.completion,
-						{ buffer = event.buf, desc = "LSP: Trigger completion" }
-					)
 
 					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
