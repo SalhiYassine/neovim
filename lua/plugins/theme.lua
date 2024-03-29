@@ -10,4 +10,10 @@ return {
 			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
+	{
+		"HiPhish/rainbow-delimiters.nvim",
+		config = function()
+			require("rainbow-delimiters")
+		end,
+	},
 }

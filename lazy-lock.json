@@ -27,6 +27,7 @@
   "nvim-web-devicons": { "branch": "master", "commit": "3ee60deaa539360518eaab93a6c701fe9f4d82ef" },
   "oil.nvim": { "branch": "master", "commit": "e462a3446505185adf063566f5007771b69027a1" },
   "plenary.nvim": { "branch": "master", "commit": "8aad4396840be7fc42896e3011751b7609ca4119" },
+  "rainbow-delimiters.nvim": { "branch": "master", "commit": "580bc045c7ab3ab3ebd267774038c0d8cc19c789" },
   "refactoring.nvim": { "branch": "master", "commit": "d2786877c91aa409c824f27b4ce8a9f560dda60a" },
   "tailwind-tools.nvim": { "branch": "master", "commit": "b70f182824a3a1832553818ff3045236a8660552" },
   "tailwindcss-colorizer-cmp.nvim": { "branch": "main", "commit": "3d3cd95e4a4135c250faf83dd5ed61b8e5502b86" },

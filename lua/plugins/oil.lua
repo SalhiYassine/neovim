@@ -8,6 +8,9 @@ return {
 				lsp_file_methods = {
 					timeout_ms = 10000,
 				},
+				win_options = {
+					winbar = "%{v:lua.require('oil').get_current_dir()}",
+				},
 				columns = {
 					"icon",
 				},
