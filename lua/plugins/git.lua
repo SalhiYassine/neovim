@@ -1,4 +1,5 @@
 return {
+	"f-person/git-blame.nvim",
 	{
 		"NeogitOrg/neogit",
 		dependencies = {

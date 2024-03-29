@@ -1,4 +1,9 @@
 return {
+	{
+		"luckasRanarison/tailwind-tools.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		opts = {},
+	},
 	"tpope/vim-sleuth",
 	{
 		"hrsh7th/nvim-cmp",

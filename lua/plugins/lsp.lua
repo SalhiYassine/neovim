@@ -64,6 +64,10 @@ return {
 				jsonls = {},
 				html = {},
 				tsserver = {},
+				tailwindcss = {},
+				prismals = {},
+				eslint = {},
+				cssls = {},
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -81,6 +85,10 @@ return {
 				"tsserver",
 				"gopls",
 				"jsonls",
+				"tailwindcss",
+				"prismals",
+				"eslint",
+				"cssls",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 			require("mason-lspconfig").setup({
