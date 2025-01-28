@@ -7,6 +7,7 @@ return {
 		-- refer to the configuration section below
 	},
 	config = function()
+		local trouble = require("trouble")
 		vim.keymap.set("n", "<leader>xx", function()
 			trouble.toggle()
 		end)

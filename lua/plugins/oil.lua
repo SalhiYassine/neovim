@@ -5,6 +5,7 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("oil").setup({
+				autosave_changes = true,
 				lsp_file_methods = {
 					timeout_ms = 10000,
 				},

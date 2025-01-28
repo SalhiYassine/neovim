@@ -42,6 +42,11 @@ return {
 					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 					map("K", vim.lsp.buf.hover, "Hover Documentation")
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+
+					map("<leader>ci", function()
+						vim.lsp.buf.execute_command({ command = "OrganizeImports" })
+					end, "[O]rganize [I]mports")
+
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if client and client.server_capabilities.documentHighlightProvider then
 						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -89,6 +94,8 @@ return {
 				"prismals",
 				"eslint",
 				"cssls",
+				"pyright",
+				"js-debug-adapter",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 			require("mason-lspconfig").setup({
@@ -100,7 +107,34 @@ return {
 					end,
 				},
 			})
+			require("lspconfig").pyright.setup({
+				settings = {
+					python = {
+						analysis = {
+							autoSearchPaths = true,
+							useLibraryCodeForTypes = true,
+						},
+					},
+				},
+			})
+
+			local function organize_imports()
+				local params = {
+					command = "_typescript.organizeImports",
+					arguments = { vim.api.nvim_buf_get_name(0) },
+					title = "",
+				}
+				vim.lsp.buf.execute_command(params)
+			end
+
 			require("lspconfig").tsserver.setup({
+				commands = {
+					OrganizeImports = {
+						organize_imports,
+						description = "Organize Imports",
+					},
+				},
+
 				init_options = {
 					preferences = {
 						importModuleSpecifierPreference = "relative",

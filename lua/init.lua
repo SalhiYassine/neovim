@@ -1,5 +1,5 @@
 require("remaps")
-require("/after")
+-- require("/after")
 
 function PathToJestTestConfig()
 	local file = vim.fn.expand("%:p")

@@ -14,6 +14,19 @@ function SetUpAlgomoPlatformKeymaps()
 		vim.keymap.set("n", lhs, rhs, opts or {})
 	end
 
+	local testServerTypesCommand = 'clear && docker exec -it server sh -c "cd api/server && yarn typecheck "'
+	map("<leader>tt", function()
+		local isWithinAlgomoPlatform = IsWithinAlgomoPlatform()
+		if isWithinAlgomoPlatform then
+			local t = require("toggleterm")
+			t.setup({
+				shell = "/bin/zsh",
+				direction = "float",
+			})
+			return t.exec(testServerTypesCommand)
+		end
+	end)
+
 	local testPlatformCommand = 'clear && docker exec -it server sh -c "cd api/server && yarn test:local "'
 	map("<leader>wt", function()
 		local isWithinAlgomoPlatform = IsWithinAlgomoPlatform()
