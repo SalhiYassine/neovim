@@ -71,7 +71,6 @@ return {
 				tsserver = {},
 				tailwindcss = {},
 				prismals = {},
-				eslint = {},
 				cssls = {},
 				lua_ls = {
 					settings = {
@@ -92,7 +91,6 @@ return {
 				"jsonls",
 				"tailwindcss",
 				"prismals",
-				"eslint",
 				"cssls",
 				"pyright",
 				"js-debug-adapter",

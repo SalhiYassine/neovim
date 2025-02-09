@@ -33,23 +33,19 @@ return {
 					},
 				},
 			})
-			-- Enable telescope extensions, if they are installed
 			pcall(require("telescope").load_extension, "fzf")
 			pcall(require("telescope").load_extension, "ui-select")
 			pcall(require("telescope").load_extension("recent-files"))
-			-- See `:help telescope.builtin`
 			local builtin = require("telescope.builtin")
 			local find_files = function()
-				-- builtin.find_files({ path_display = { "truncate" } })
 				require("telescope").extensions["recent-files"].recent_files({ path_display = { "truncate" } })
 			end
-			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
-			vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
-			vim.keymap.set("n", "<leader>fn", find_files, { desc = "[S]earch [F]iles" })
-			vim.keymap.set("n", "<leader>fc", builtin.live_grep, { desc = "[S]earch by [C]ontent" })
-			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-			vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-			-- Shortcut for searching your neovim configuration files
+			vim.keymap.set("n", "<leader>sh", builtin.help_tags)
+			vim.keymap.set("n", "<leader>sk", builtin.keymaps)
+			vim.keymap.set("n", "<leader>fn", find_files)
+			vim.keymap.set("n", "<leader>fc", builtin.live_grep)
+			vim.keymap.set("n", "<leader>sd", builtin.diagnostics)
+			vim.keymap.set("n", "<leader>s.", builtin.oldfiles)
 			vim.keymap.set("n", "<leader>sn", function()
 				builtin.find_files({ cwd = vim.fn.stdpath("config") })
 			end, { desc = "[S]earch [N]eovim files" })
